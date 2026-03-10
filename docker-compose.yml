@@ -1,0 +1,14 @@
+services:
+  web:
+    image: php:8.4-apache
+    container_name: web_${PROJECT_NAME}
+    ports:
+      - "${WEB_PORT}:80"
+    volumes:
+      - ./public:/var/www/html
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    driver: bridge
